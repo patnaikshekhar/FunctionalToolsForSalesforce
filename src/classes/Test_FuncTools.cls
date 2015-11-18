@@ -89,6 +89,26 @@ public class Test_FuncTools {
         System.assertEquals(4, (Integer)result[1]);
     }
     
+    public static testmethod void reduce_EmptyArray_shouldReturnEmptyArray() {
+        List<Integer> ints = new List<Integer>();
+        
+        Test.startTest();
+        Object result = FuncTools.reduce(ints, new reduce_EmptyArray_shouldReturnEmptyArray(), null);
+        Test.stopTest();
+        
+        System.assertEquals(null, result);
+    }
+    
+    public static testmethod void reduce_IntegerArray_shouldAddElementsOfArray() {
+        List<Integer> ints = new List<Integer>{1, 2, 3, 4};
+        
+        Test.startTest();
+        Object result = FuncTools.reduce(ints, new reduce_IntegerArray_shouldAddElementsOfArray(), 0);
+        Test.stopTest();
+        
+        System.assertEquals(10, (Integer) result);
+    }
+    
     // Callbacks
     private class map_EmptyArray_shouldReturnEmptyArray implements FunctionalInterface {
         public Object execute(Object o) {
@@ -139,5 +159,16 @@ public class Test_FuncTools {
             return Math.mod((Integer) o, 2) == 0;
         }
     }
+	
+    private class reduce_EmptyArray_shouldReturnEmptyArray implements FunctionalInterface2 {
+        public Object execute(Object o1, Object o2) {
+            return null;
+        }
+    }
     
+    private class reduce_IntegerArray_shouldAddElementsOfArray implements FunctionalInterface2 {
+        public Object execute(Object acc, Object i) {
+            return (Integer)acc + (Integer)i;
+        }
+    }
 }

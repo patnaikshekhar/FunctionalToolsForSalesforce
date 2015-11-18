@@ -3,6 +3,7 @@
     <types>
         <members>FuncTools</members>
         <members>FunctionalInterface</members>
+        <members>FunctionalInterface2</members>
         <members>Test_FuncTools</members>
         <name>ApexClass</name>
     </types>

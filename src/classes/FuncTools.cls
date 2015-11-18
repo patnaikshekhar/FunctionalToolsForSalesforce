@@ -21,4 +21,15 @@ public class FuncTools {
         
         return result;
     }
+    
+    public static Object reduce(List<Object> input, FunctionalInterface2 f, Object initialValue) {
+        
+        Object accumulator = initialValue;
+        
+        for (Object i : input) {
+            accumulator = f.execute(accumulator, i);
+        }
+        
+        return accumulator;
+    }
 }

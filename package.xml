@@ -2,6 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>FunctionalInterface</members>
+        <members>FunctionalInterface2</members>
         <members>FuncTools</members>
         <members>Test_FuncTools</members>
         <name>ApexClass</name>
