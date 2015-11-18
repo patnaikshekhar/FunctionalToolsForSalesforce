@@ -2,7 +2,8 @@
 
 Functional programming has really not been a thing on the Salesforce platform. However since functional programming is **awesome** and is becoming more and more **popular**, here is a library which allows us to do some sort of functional programming in apex. This is work in progress at the moment.
 
-## Usage
+## Usage - FuncTools class
+This is a class containing the basic map, reduce and filter functions and can be used with any standard List.
 
 * **Map** Function
 ```java
@@ -56,3 +57,43 @@ Object result = FuncTools.reduce(ints, new Callback(), 0);
 
 System.assertEquals(10, (Integer) result);
 ```
+
+## Usage - FList class
+This is a wrapper immutable class which provides a better syntax for Lists.
+
+Here is an example:
+```java
+private class NumbersGreaterThan2 implements FunctionalInterface {
+    public Object execute(Object o) {
+        return (Integer)o > 2;
+    }
+}
+    
+private class DoubleNumbers implements FunctionalInterface {
+    public Object execute(Object o) {
+        return (Integer)o * 2;
+    }
+}
+    
+private class Sum implements FunctionalInterface2 {
+    public Object execute(Object o1, Object o2) {
+        return (Integer)o1 + (Integer)o2;
+    }
+}
+
+FList l = new FList(new List<Integer> {1, 2, 3, 4});
+Object result = l.filter(new NumbersGreaterThan2())
+                 .mapper(new DoubleNumbers())
+                 .reduce(new Sum(), 0);
+        
+System.assertEquals(14, (Integer)result);
+```
+
+The class contains the following methods
+* constructor - Pass in a List of Objects to create a FList
+* add(**Object**) - Creates a new FList by cloning the old list and adding the item
+* get(**Integer**) - Gets the element at the index
+* cloneList() - Returns a clone of the list
+* mapper(**FunctionalInterface** f) - Returns a new FList and runs the mapping function
+* filter(**FunctionalInterface** f) - Returns a new FList and runs the filtering function
+* reduce(**FunctionalInterface2** f, **Object** initialValue) - Returns an object by running the reducing function for each element of the list

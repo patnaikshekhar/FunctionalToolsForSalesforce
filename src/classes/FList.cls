@@ -30,14 +30,14 @@ public class FList {
     }
     
     public FList mapper(FunctionalInterface f) {
-        return this.cloneList();
+        return new FList(FuncTools.mapper(this.lst, f));
     }
     
     public FList filter(FunctionalInterface f) {
-        return null;
+        return new FList(FuncTools.filter(this.lst, f));
     }
     
-    public FList reduce(FunctionalInterface2 f, Object initialValue) {
-        return null;
+    public Object reduce(FunctionalInterface2 f, Object initialValue) {
+        return FuncTools.reduce(this.lst, f, initialValue);
     }
 }
