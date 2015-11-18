@@ -1,6 +1,6 @@
 # Functional Tools for Salesforce
 
-Functional programming has really not been a thing on the Salesforce platform. However since functional programming is **awesome** and is becoming more and more **popular**, here is a library which allows us to do some sort of functional programming in apex. This is work in progress at the moment.
+Functional programming has really not been a thing on the Salesforce platform. However since functional programming is **awesome** and is becoming more and more **popular**, here is a library which allows us to do some sort of functional programming in apex. This is work in progress at the moment. Of course all this would've been easier if Apex supported Generic fully, and if it supported passing functions as arguments or even anonymous classes.
 
 ## Usage - FuncTools class
 This is a class containing the basic map, reduce and filter functions and can be used with any standard List.
