@@ -1,0 +1,43 @@
+public class FList {
+	private List<Object> lst;
+    
+    public FList(List<Object> lst) {
+        this.lst = lst;
+    }
+    
+    public Integer size() {
+        return lst.size();
+    }
+    
+    public FList add(Object o) {
+        FList newList = this.cloneList();
+        newList.lst.add(o);
+        return newList;
+    }
+    
+    public Object get(Integer index) {
+        return lst[index];
+    }
+    
+    public FList cloneList() {
+        List<Object> newList = new List<Object>();
+        
+        for (Object o : lst) {
+            newList.add(o);
+        }
+        
+        return new FList(newList);
+    }
+    
+    public FList mapper(FunctionalInterface f) {
+        return this.cloneList();
+    }
+    
+    public FList filter(FunctionalInterface f) {
+        return null;
+    }
+    
+    public FList reduce(FunctionalInterface2 f, Object initialValue) {
+        return null;
+    }
+}

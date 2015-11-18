@@ -5,6 +5,8 @@
         <members>FunctionalInterface2</members>
         <members>FuncTools</members>
         <members>Test_FuncTools</members>
+        <members>FList</members>
+        <members>Test_FList</members>
         <name>ApexClass</name>
     </types>
     <version>35.0</version>
