@@ -1,5 +1,9 @@
-public class FList {
+public virtual class FList {
 	private List<Object> lst;
+    
+    public FList() {
+        this.lst = new List<Object>();
+    }
     
     public FList(List<Object> lst) {
         this.lst = lst;
@@ -39,5 +43,9 @@ public class FList {
     
     public Object reduce(FunctionalInterface2 f, Object initialValue) {
         return FuncTools.reduce(this.lst, f, initialValue);
+    }
+    
+    public List<Object> getList() {
+        return this.lst.clone();
     }
 }

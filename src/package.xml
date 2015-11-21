@@ -5,8 +5,10 @@
         <members>FuncTools</members>
         <members>FunctionalInterface</members>
         <members>FunctionalInterface2</members>
+        <members>SOList</members>
         <members>Test_FList</members>
         <members>Test_FuncTools</members>
+        <members>Test_SOList</members>
         <name>ApexClass</name>
     </types>
     <version>35.0</version>
