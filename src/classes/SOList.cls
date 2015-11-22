@@ -76,8 +76,7 @@ public class SOList {
         return (Map<Id, sObject>)FuncTools.reduce(this.lst, new getIdMapOfRecords_reducer(), new Map<Id, sObject>());
     }
     
-    public SOList insertRecords() {
-        List<Database.SaveResult> result = Database.insert(this.lst, false);
+    private SOList createSuccessErrorLists(List<Database.SaveResult> result) {
         List<sObject> successes = new List<sObject>();
         Map<Id, sObject> idMapOfRecords = getIdMapOfRecords();
             
@@ -94,6 +93,16 @@ public class SOList {
         }
         
         return new SOList(successes, this.errorMap);
+    }
+    
+    public SOList insertRecords() {
+        List<Database.SaveResult> result = Database.insert(this.lst, false);
+        return createSuccessErrorLists(result);
+    }
+    
+    public SOList updateRecords() {
+        List<Database.SaveResult> result = Database.update(this.lst, false);
+        return createSuccessErrorLists(result);
     }
     
     public Map<Id, String> errors() {
