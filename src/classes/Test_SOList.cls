@@ -105,4 +105,20 @@ public class Test_SOList {
         System.assertEquals(1, result.size());
         System.assertEquals(1, errors.keySet().size());
     }
+    
+    public static testmethod void deleteRecords_WithProperRecords_deletesTheRecords() {
+        
+        Account a = new Account(name = 'Test a');
+        Account b = new Account(name = 'Test b');
+        insert a;
+        insert b;
+        
+        Test.startTest();
+        SOList l = SOList.create(new List<sObject>{a, b});
+        SOList result = l.deleteRecords();
+        Test.stopTest();
+        
+        System.assertEquals(0, ([SELECT Id FROM Account]).size());
+        System.assertEquals(2, result.size());
+    }
 }

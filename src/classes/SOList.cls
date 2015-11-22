@@ -105,6 +105,24 @@ public class SOList {
         return createSuccessErrorLists(result);
     }
     
+    public SOList deleteRecords() {
+        List<Database.DeleteResult> result = Database.delete(this.lst, false);
+        List<sObject> successes = new List<sObject>();
+        Map<Id, sObject> idMapOfRecords = getIdMapOfRecords();
+        
+        for(Database.DeleteResult dr : result) {
+            if (dr.isSuccess()) {
+                successes.add(idMapOfRecords.get(dr.getId()));
+            } else {               
+                for(Database.Error err : dr.getErrors()) {
+                    this.errorMap.put(dr.getId(), err.getMessage());
+                }
+            }
+        }
+        
+        return new SOList(successes, this.errorMap);
+    }
+    
     public Map<Id, String> errors() {
         return this.errorMap;
     }
