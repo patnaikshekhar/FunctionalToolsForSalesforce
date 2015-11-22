@@ -97,3 +97,46 @@ The class contains the following methods
 * mapper(**FunctionalInterface** f) - Returns a new FList and runs the mapping function
 * filter(**FunctionalInterface** f) - Returns a new FList and runs the filtering function
 * reduce(**FunctionalInterface2** f, **Object** initialValue) - Returns an object by running the reducing function for each element of the list
+
+## Usage - SOList class
+This is a wrapper immutable class which provides a better syntax for Lists of sObjects.
+
+Here is an example:
+```java
+Object result = SOList.create([SELECT Id, Name, isActive FROM Account])
+                 .filter(new AccountsStartingWithA())
+                 .mapper(new SetActiveToFalse())
+                 .update();        
+```
+
+or 
+
+```java
+Map<Id, sObject> result = SOList.create('SELECT Id, Name, isActive FROM Account')
+                 .filter(new AccountsStartingWithA())
+                 .mapper(new SetActiveToFalse())
+                 .update()
+                 .errors();
+```
+
+or 
+```java
+Map<Id, sObject> result = SOList.create(Trigger.New)
+                 .filter(new AccountsWithChangedNames(Trigger.OldMap))
+                 .mapper(new CreateActivitiesForAccounts())
+                 .insert()
+                 .errors();
+```
+
+The class contains the following methods
+* create(**ListOfsObjects**) or create(**QueryString**) - A factory class which creates an instance of SOList;
+* add(**Object**) - Creates a new SOList by cloning the old list and adding the item
+* get(**Integer**) - Gets the element at the index
+* cloneList() - Returns a clone of the list
+* mapper(**FunctionalInterface** f) - Returns a new SOList and runs the mapping function
+* filter(**FunctionalInterface** f) - Returns a new SOList and runs the filtering function
+* reduce(**FunctionalInterface2** f, **Object** initialValue) - Returns an object by running the reducing function for each element of the list
+* insert() - Inserts the objects to the database
+* update() - Updates the objects into the database
+* delete() - Deletes the objects from the database
+* errors() - Returns a map of errors created during the operations in the chain
