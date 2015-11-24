@@ -6,10 +6,17 @@
         <members>FunctionalInterface</members>
         <members>FunctionalInterface2</members>
         <members>SOList</members>
+        <members>SOList</members>
+        <members>SOListAync</members>
         <members>Test_FList</members>
         <members>Test_FuncTools</members>
         <members>Test_SOList</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Aync_Job__c</members>
+        <members>Aync_Task__c</members>
+        <name>CustomObject</name>
     </types>
     <version>35.0</version>
 </Package>

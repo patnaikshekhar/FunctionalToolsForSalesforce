@@ -122,7 +122,7 @@ public class SOList {
         
         return new SOList(successes, this.errorMap);
     }
-    
+	   
     public Map<Id, String> errors() {
         return this.errorMap;
     }

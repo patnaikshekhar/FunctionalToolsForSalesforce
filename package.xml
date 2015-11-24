@@ -9,7 +9,14 @@
         <members>Test_FList</members>
         <members>SOList</members>
         <members>Test_SOList</members>
+        <members>SOList</members>
+        <members>SOListAync</members>
         <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Aync_Job__c</members>
+        <members>Aync_Task__c</members>
+        <name>CustomObject</name>
     </types>
     <version>35.0</version>
 </Package>
