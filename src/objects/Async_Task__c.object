@@ -59,8 +59,7 @@
         <fullName>Aync_Job__c</fullName>
         <externalId>false</externalId>
         <label>Aync Job</label>
-        <referenceTo>Aync_Job__c</referenceTo>
-        <relationshipLabel>Aync Tasks</relationshipLabel>
+        <referenceTo>Async_Job__c</referenceTo>
         <relationshipName>Aync_Tasks</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -88,13 +87,13 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Aync Task</label>
+    <label>Async Task</label>
     <nameField>
         <displayFormat>AT-{0000}</displayFormat>
-        <label>Aync Task Id</label>
+        <label>Async Task Id</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Aync Tasks</pluralLabel>
+    <pluralLabel>Async Tasks</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

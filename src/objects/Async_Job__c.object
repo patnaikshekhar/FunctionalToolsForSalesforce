@@ -55,13 +55,13 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <label>Aync Job</label>
+    <label>Async Job</label>
     <nameField>
         <displayFormat>AJ-{0000}</displayFormat>
-        <label>Aync Job Id</label>
+        <label>Async Job Id</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Aync Jobs</pluralLabel>
+    <pluralLabel>Async Jobs</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
