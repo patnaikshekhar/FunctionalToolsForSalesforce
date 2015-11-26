@@ -48,4 +48,22 @@ public virtual class FList {
     public List<Object> getList() {
         return this.lst.clone();
     }
+    
+    public Object head() {
+        if (this.lst.size() > 0) {
+        	return this.lst[0];    
+        } else {
+            return null;
+        }
+    }
+    
+    public FList tail() {
+        List<Object> newList = this.lst.clone();
+        if (lst.size() > 0) {
+        	newList.remove(0);
+            return new FList(newList);
+        } else {
+            return null;
+        }
+    }
 }

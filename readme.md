@@ -97,6 +97,8 @@ The class contains the following methods
 * mapper(**FunctionalInterface** f) - Returns a new FList and runs the mapping function
 * filter(**FunctionalInterface** f) - Returns a new FList and runs the filtering function
 * reduce(**FunctionalInterface2** f, **Object** initialValue) - Returns an object by running the reducing function for each element of the list
+* head() - Returns the first element in the list
+* tail() - Returns a new FList with every element except for the first one
 
 ## Usage - SOList class
 This is a wrapper immutable class which provides a better syntax for Lists of sObjects.

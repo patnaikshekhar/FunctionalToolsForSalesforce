@@ -58,6 +58,61 @@ public class Test_FList {
         System.assertEquals(14, (Integer)result);
     }
     
+    public static testmethod void head_withAList_returnsFirstElement() {
+        FList l = new FList(new List<Integer> {1, 2, 3, 4});
+        
+        Test.startTest();
+        Object result = l.head();
+        Test.stopTest();
+        
+        System.assertEquals(1, (Integer)result);
+    }
+    
+    public static testmethod void head_withAnEmptyList_returnsNull() {
+        FList l = new FList(new List<Integer>());
+        
+        Test.startTest();
+        Object result = l.head();
+        Test.stopTest();
+        
+        System.assertEquals(null, result);
+    }
+    
+    public static testmethod void tail_withAList_returnsRemainingElements() {
+        FList l = new FList(new List<Integer> {1, 2, 3, 4});
+        
+        Test.startTest();
+        FList result = l.tail();
+        Test.stopTest();
+        
+        System.assertEquals(4, l.size());
+        System.assertEquals(3, result.size());
+        System.assertEquals(2, (Integer)result.getList()[0]);
+        System.assertEquals(3, (Integer)result.getList()[1]);
+        System.assertEquals(4, (Integer)result.getList()[2]);
+    }
+    
+    public static testmethod void tail_withASingleElementList_returnsEmptyList() {
+        FList l = new FList(new List<Integer> {1});
+        
+        Test.startTest();
+        FList result = l.tail();
+        Test.stopTest();
+        
+        System.assertEquals(1, l.size());
+        System.assertEquals(0, result.size());
+    }
+    
+    public static testmethod void tail_withAnEmptyList_returnsNull() {
+        FList l = new FList(new List<Integer>());
+        
+        Test.startTest();
+        FList result = l.tail();
+        Test.stopTest();
+        
+        System.assertEquals(null, result);
+    }
+    
     // Callbacks
     private class mapper_withAnEmptyArray_shouldReturnTheList implements FunctionalInterface {
         public Object execute(Object lst) {
