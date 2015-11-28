@@ -1,9 +1,10 @@
 public class SOListAsync {
-	List<Async_Task__c> operations;
+	FList functions;
+    FList operations;
     List<sObject> lst;
     
     public SOListAsync(List<sObject> objects) {
-        this(objects, new List<Async_Task__c>());
+        this(objects, null, null);
     }
     
     // Factory method for creation
@@ -11,19 +12,23 @@ public class SOListAsync {
         return new SOListAsync(objects);
     }
     
-    public SOListAsync(List<sObject> objects, List<Async_Task__c> operations) {
+    public SOListAsync(List<sObject> objects, FList operations, FList functions) {
         this.lst = objects;
         this.operations = operations;
+        this.functions = functions;
     }
     
     public SOListAsync mapper(FunctionalInterface f) {
-        //this.operations.add(new Async_Task__c(Type__c = 'mapper', Function__c=fn));
-        //return new SOListAsync(this.lst, this.operations);
-        return null;
+        operations.getList().add('map');
+        functions.getList().add(f);
+        return new SOListAsync(lst, operations, functions);
     }
     
     // The success sink. It starts the operation
-    public void success(String callback) {
-        
+    public void success(FunctionalInterface f) {
+        operations.getList().add('success');
+        functions.getList().add(f);
+        AsyncFunctionExecutor executor = new AsyncFunctionExecutor(SOList.create(lst), operations, functions);
+        System.enqueueJob(executor);
     }
 }

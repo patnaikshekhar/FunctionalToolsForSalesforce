@@ -12,8 +12,6 @@ public class Test_SOListAsync {
         
         Test.startTest();
         
-
-        
         SOListAsync.create(new List<Account> {a1, a2})
             	   .mapper(new Test_SOListAsync.Test_SOListAsync_mapper_CreateSimpleMapWithInsert_insertsRecords_MapAccountDescription())
             	   .success('Test_SOListAsync_mapper_CreateSimpleMapWithInsert_successCallback');

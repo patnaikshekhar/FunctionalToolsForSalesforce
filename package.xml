@@ -12,6 +12,7 @@
         <members>SOList</members>
         <members>SOListAsync</members>
         <members>Test_SOListAsync</members>
+        <members>AsyncFunctionExecutor</members>
         <name>ApexClass</name>
     </types>
     <types>
