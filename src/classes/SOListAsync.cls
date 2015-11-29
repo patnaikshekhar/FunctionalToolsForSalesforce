@@ -4,7 +4,7 @@ public class SOListAsync {
     List<sObject> lst;
     
     public SOListAsync(List<sObject> objects) {
-        this(objects, null, null);
+        this(objects, new FList(new List<String>()), new FList(new List<FunctionalInterface>()));
     }
     
     // Factory method for creation
